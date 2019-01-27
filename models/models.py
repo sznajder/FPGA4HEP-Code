@@ -109,19 +109,19 @@ def three_layer_model_binary(Inputs, nclasses, l1Reg=0):
      
     model = Sequential()
     
-    model.add(BinaryDense(64, H='Glorot', kernel_lr_multiplier='Glorot', use_bias=False, name='fc1', input_shape=(16,)))
+    model.add(BinaryDense(64, H=1, use_bias=False, name='fc1', input_shape=(16,)))
     model.add(BatchNormalization(epsilon=1e-6, momentum=0.9, name='bn1'))
     model.add(Activation(binary_tanh, name='act{}'.format(1)))
     
-    model.add(BinaryDense(32, H='Glorot', kernel_lr_multiplier='Glorot', use_bias=False, name='fc2'))  
+    model.add(BinaryDense(32, H=1, use_bias=False, name='fc2'))  
     model.add(BatchNormalization(epsilon=1e-6, momentum=0.9, name='bn2'))
     model.add(Activation(binary_tanh, name='act{}'.format(2)))  
     
-    model.add(BinaryDense(32, H='Glorot', kernel_lr_multiplier='Glorot', use_bias=False, name='fc3'))   
+    model.add(BinaryDense(32, H=1, use_bias=False, name='fc3'))   
     model.add(BatchNormalization(epsilon=1e-6, momentum=0.9, name='bn3'))
     model.add(Activation(binary_tanh, name='act{}'.format(3)))  
         
-    model.add(BinaryDense(nclasses, H='Glorot', kernel_lr_multiplier='Glorot', use_bias=False, name='output'))
+    model.add(BinaryDense(nclasses, H=1, use_bias=False, name='output'))
     model.add(BatchNormalization(epsilon=1e-6, momentum=0.9, name='bn'))
     
     return model                                                       
@@ -133,19 +133,19 @@ def three_layer_model_ternary(Inputs, nclasses, l1Reg=0):
      
     model = Sequential()
     
-    model.add(TernaryDense(64, H='Glorot', kernel_lr_multiplier='Glorot', use_bias=False, name='fc1', input_shape=(16,)))
+    model.add(TernaryDense(64, H=1, use_bias=False, name='fc1', input_shape=(16,)))
     model.add(BatchNormalization(epsilon=1e-6, momentum=0.9, name='bn1'))
     model.add(Activation(ternary_tanh, name='act{}'.format(1)))     
     
-    model.add(TernaryDense(32, H='Glorot', kernel_lr_multiplier='Glorot', use_bias=False, name='fc2'))  
+    model.add(TernaryDense(32, H=1, use_bias=False, name='fc2'))  
     model.add(BatchNormalization(epsilon=1e-6, momentum=0.9, name='bn2'))
     model.add(Activation(ternary_tanh, name='act{}'.format(2)))  
     
-    model.add(TernaryDense(32, H='Glorot', kernel_lr_multiplier='Glorot', use_bias=False, name='fc3'))   
+    model.add(TernaryDense(32, H=1, use_bias=False, name='fc3'))   
     model.add(BatchNormalization(epsilon=1e-6, momentum=0.9, name='bn3'))
     model.add(Activation(ternary_tanh, name='act{}'.format(3)))      
     
-    model.add(TernaryDense(nclasses, H='Glorot', kernel_lr_multiplier='Glorot', use_bias=False, name='output'))
+    model.add(TernaryDense(nclasses, H=1, use_bias=False, name='output'))
     model.add(BatchNormalization(epsilon=1e-6, momentum=0.9, name='bn'))
     
     return model 
