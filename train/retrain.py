@@ -64,5 +64,5 @@ if __name__ == "__main__":
                             lr_minimum=0.0000001,
                             outputDir=options.outputDir)
 
-    keras_model.fit(X_train_val, y_train_val, batch_size = 1024, epochs = 250,
+    keras_model.fit(X_train_val, y_train_val, batch_size = 1024, epochs = 100,
                     validation_split = 0.25, shuffle = True, callbacks = callbacks.callbacks)
